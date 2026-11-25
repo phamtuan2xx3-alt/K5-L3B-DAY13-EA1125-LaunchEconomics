@@ -32,7 +32,7 @@ Từ `src/` chạy:
 | Event/rủi ro | 14 event có trace/request/time; 4 chỉ số đề xuất; 4 rủi ro từ code; đo phút thật và khử trùng giao dịch riêng | Đặc tả hoàn thiện, chưa phải log đã triển khai |
 | Hồ sơ nhóm | Launch đủ 7 mục, 3 trạng thái đúng mẫu, có vai trò/ngày kiểm tra và đề xuất cuối; báo cáo nhóm 8 mục | Đã rà nội dung và định dạng Markdown |
 | File/nguồn | Đủ 6 file hồ sơ, 4 báo cáo cá nhân; giữ nguyên CSV/starter/template, không secret/venv trong Git | Đã kiểm bằng diff/hash/file list |
-| Cá nhân và kiểm máy khác | Tùng tự khai 9/9 test của bản TV1 ban đầu trên máy TV2; bản tích hợp 13 test có E1/dự toán mới chưa được TV2 xác nhận lại; tự kiểm của Tuấn còn chờ | Không coi lượt chạy Codex là máy thứ hai hoặc xác nhận cá nhân |
+| Cá nhân và kiểm máy khác | Tuấn xác nhận đã kiểm tra kỹ phần TV1 ngày 25/11/2026. Tùng tự khai 9/9 test của bản TV1 ban đầu; bản tích hợp 13 test chưa được TV2 xác nhận chạy lại | TV1 đã xác nhận cá nhân; kiểm chứng bản mới trên máy TV2 còn chờ |
 | Hội đồng và LMS | Phiếu có tên người ghi/theo đúng rubric, chưa ghi điểm giả; không có quyết định thực tế hoặc biên nhận LMS | **Chưa xác nhận** |
 
 ## Các sửa đổi có ý nghĩa
@@ -46,6 +46,6 @@ Từ `src/` chạy:
 
 ## Giới hạn nghiệm thu
 
-Chưa có bằng chứng để chốt trọn bài nhóm: bản tích hợp mới chưa có xác nhận chạy trên máy TV2; hội đồng chưa ghi điểm/quyết định thực tế; Tuấn chưa tự xác nhận kiểm bài; chưa có xác nhận mỗi người nộp LMS; điều kiện khởi động pilot là dự kiến. Không dùng kiểm thử tự động hoặc báo cáo này làm bằng chứng các hoạt động đó đã diễn ra. Không tự cho điểm 30/30 hội đồng.
+Chưa có bằng chứng để chốt trọn bài nhóm: bản tích hợp mới chưa có xác nhận chạy trên máy TV2; hội đồng chưa ghi điểm/quyết định thực tế; chưa có xác nhận mỗi người nộp LMS; điều kiện khởi động pilot là dự kiến. Tuấn đã xác nhận kiểm tra kỹ phần TV1 ngày 25/11/2026. Không dùng kiểm thử tự động hoặc báo cáo này làm bằng chứng các hoạt động còn lại đã diễn ra. Không tự cho điểm 30/30 hội đồng.
 
 **Kết quả kiểm tra độc lập cuối:** **Technical PASS**, không còn lỗi bắt buộc sửa mức P0–P2. Đối chiếu CSV bằng phép tính độc lập xác nhận A–B, E1 và dự toán pilot; YAML, lịch, nhãn và output đã được kiểm. **Full-course GAPS_FOUND** cho các phần thực tế nêu trên; quy trình gắn nhãn độc lập chỉ được xác nhận qua báo cáo của hai người, không thể chứng minh cách thực hiện chỉ bằng kiểm file. Không chốt hoàn tất toàn bài hoặc điểm hội đồng từ kết quả kỹ thuật này.

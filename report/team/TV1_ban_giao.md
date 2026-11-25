@@ -78,6 +78,6 @@ Các ngưỡng theo dõi/hành động là đề xuất cho kế hoạch; tác �
 
 Đã nhận hồ sơ TV2/TV3/TV4 và tích hợp, giữ nguồn đóng góp theo Git. Phần dự toán cuối [bảng chi phí](bang_chi_phi.md) tính riêng phạm vi pilot tối đa 2 lần: hệ thống/yêu cầu toàn công ty có cố định 6.385,88 đ ở 45.000 ca/tháng, 7.274,77 đ ở nửa lưu lượng (simulated); không dùng CPS gốc 3 lần thay chỉ số này.
 
-Chưa xác nhận kết quả hội đồng, phê duyệt điều kiện pilot, cá nhân Tuấn tự kiểm và nộp LMS. Không dùng kiểm thử code làm bằng chứng các bước này đã hoàn thành.
+PHẠM QUANG TUẤN đã xác nhận kiểm tra kỹ phần TV1 ngày 25/11/2026. Vẫn chờ TV2 chạy lại bản tích hợp mới, kết quả hội đồng, phê duyệt điều kiện pilot và nộp LMS; kiểm thử code không thay cho các bước thực tế này.
 
 Nguồn: [dữ liệu/công thức](../../docs/du_lieu_va_cong_thuc.md), [hướng dẫn lab](../../docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md), [checkpoints](../../CHECKPOINTS.md), [rubric](../../RUBRIC.md).

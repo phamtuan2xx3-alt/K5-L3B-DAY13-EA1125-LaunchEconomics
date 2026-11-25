@@ -101,6 +101,7 @@ Luồng bàn giao: **output A/B → bảng chi phí → phạm vi pilot và rủ
 
 ## Checklist chung trước khi nộp
 
+- [x] PHẠM QUANG TUẤN — 2A202603824 xác nhận đã kiểm tra kỹ phần TV1 ngày 25/11/2026; ghi trong báo cáo cá nhân.
 - [ ] TV2 chạy lại bản tích hợp cuối trong `src/` trên máy mình và lưu output/commit. Báo cáo TV2 đã xác nhận 9/9 test của bản TV1 ban đầu; lượt tích hợp có thêm E1/dự toán và 13 test nên cần xác nhận lại bản mới. A1 và số đối chiếu đã kiểm tại workspace.
 - [x] TV1/TV2 xác nhận mọi số lấy từ phút giả lập, kể cả tổng chi phí và tỉ lệ dẫn xuất, có nhãn `simulated`; số do code nhóm tính hoặc tính tay có cách tính.
 - [x] TV3/TV4 giữ đủ 2 bộ nhãn độc lập, quy tắc bất đồng và 5 ca khắc phục có cách đo cùng vai trò phụ trách.
@@ -117,7 +118,7 @@ Mỗi người copy `report/team/MSSV_HoTen.md` thành `report/team/<MSSV>_<HoTe
 
 | Thành viên | Phần đã làm | File/commit/output làm bằng chứng | Xác nhận nộp LMS |
 | --- | --- | --- | --- |
-| TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B/D1, kế hoạch pilot, rủi ro; tích hợp nhánh TV4, hoàn thiện E1 và rà hồ sơ theo yêu cầu sau bàn giao | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md`; `report/team/nghiem_thu.md` | Chưa xác nhận |
+| TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B/D1, kế hoạch pilot, rủi ro; tích hợp nhánh TV4, hoàn thiện E1 và rà hồ sơ; đã xác nhận kiểm tra kỹ phần TV1 ngày 25/11/2026 | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md`; `report/team/nghiem_thu.md` | Chưa xác nhận |
 | TV2 · NGUYỄN THANH TÙNG · 2A202603807 | Kiểm số độc lập (đối chiếu 0% lệch), hoàn thiện bảng chi phí A–B, chạy nghiệm thu 9/9 test trên máy TV2 | `report/team/bang_chi_phi.md`; `tests/test_lab13.py` (9 tests pass); báo cáo `report/team/2A202603807_NguyenThanhTung.md` | Chưa xác nhận |
 | TV3 · Chu Văn Nhật · 2A202603848 | Gắn nhãn độc lập 20 ca lỗi ở Nhiệm vụ C (đồng thuận 90%), hoàn thiện bảng khắc phục 5 ca; hoàn tất đặc tả chỉ số E1 (3 chỉ số tính thử + 2 đề xuất, 8 event có trace_id) và 3 rủi ro kinh tế E2; hoàn thiện báo cáo cá nhân | `report/team/bang_loi.md`; `report/team/chi_so.md`; báo cáo `2A202603848_ChuVanNhat.md` | Chưa xác nhận |
 | TV4 · Nguyễn Trọng Truyền · 2A202603868 | Gắn nhãn độc lập 2 (C), hoàn thiện `chi_so.md` (E1/E2), chốt `ho_so_launch_v0.md` 7 mục, tổng hợp `group_report.md`, cập nhật `TEAM.md` và rà checklist trước duyệt chéo | `report/team/ho_so_launch_v0.md`; `report/team/chi_so.md`; `report/team/group_report.md`; `TEAM.md`; `report/team/bang_loi.md`; báo cáo `2A202603868_NguyenTrongTruyen.md` | Chưa xác nhận |
