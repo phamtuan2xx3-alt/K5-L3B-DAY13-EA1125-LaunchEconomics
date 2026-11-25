@@ -118,7 +118,7 @@ Mỗi người copy `report/team/MSSV_HoTen.md` thành `report/team/<MSSV>_<HoTe
 | --- | --- | --- | --- |
 | TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B, phép tính hỗ trợ D1, bản đề xuất pilot và rủi ro kinh tế; chờ nhóm kiểm độc lập | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md` | Chưa xác nhận |
 | TV2 · NGUYỄN THANH TÙNG · 2A202603807 | Kiểm số độc lập (đối chiếu 0% lệch), hoàn thiện bảng chi phí A–B, chạy nghiệm thu 9/9 test trên máy TV2 | `report/team/bang_chi_phi.md`; `tests/test_lab13.py` (9 tests pass); báo cáo `report/team/2A202603807_NguyenThanhTung.md` | Chưa xác nhận |
-| TV3 · Chu Văn Nhật · 2A202603848 | Gắn nhãn độc lập 20 ca lỗi ở Nhiệm vụ C, đồng thuận 90%, viết quy tắc phân biệt và bảng khắc phục 5 ca; hoàn thiện báo cáo cá nhân | `report/team/bang_loi.md`; báo cáo `2A202603848_ChuVanNhat.md` | Chưa xác nhận |
+| TV3 · Chu Văn Nhật · 2A202603848 | Gắn nhãn độc lập 20 ca lỗi ở Nhiệm vụ C (đồng thuận 90%), hoàn thiện bảng khắc phục 5 ca; hoàn tất đặc tả chỉ số E1 (3 chỉ số tính thử + 2 đề xuất, 8 event có trace_id) và 3 rủi ro kinh tế E2; hoàn thiện báo cáo cá nhân | `report/team/bang_loi.md`; `report/team/chi_so.md`; báo cáo `2A202603848_ChuVanNhat.md` | Chưa xác nhận |
 | TV4 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
 
 ## Nguồn yêu cầu
