@@ -113,7 +113,7 @@ Mỗi người copy `report/team/MSSV_HoTen.md` thành `report/team/<MSSV>_<HoTe
 
 | Thành viên | Phần đã làm | File/commit/output làm bằng chứng | Xác nhận nộp LMS |
 | --- | --- | --- | --- |
-| TV1 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
+| TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B, phép tính hỗ trợ D1, bản đề xuất pilot và rủi ro kinh tế; chờ nhóm kiểm độc lập | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md` | Chưa xác nhận |
 | TV2 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
 | TV3 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
 | TV4 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
