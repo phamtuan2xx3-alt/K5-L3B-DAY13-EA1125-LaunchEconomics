@@ -21,7 +21,9 @@ Chi phí và tỷ lệ chi phí trong đoạn này đều **simulated**. CPS to�
 
 Bất lợi cần xử lý: xem lại 100% đẩy CPS lên **11.742,79–12.414,50 đ**; quoc_te CPS **22.515,16 đ**, chỉ **27,33%** thành công; loại quoc_te và doi_tac khỏi pilot. Trong đợt chạy thử: chính **82,83%**, bỏ qua **27,12%**, mở lại **4,25%**; đây không phải cải thiện so baseline 70%.
 
-Thiết kế: 20 nhân viên/nhóm, MDE 6 điểm, đúng 299 ca đầu/người, 5.980 ca thô/nhóm, DE 6,96; power chỉ **0,6418** nếu hiệu ứng 5 điểm. Lịch đề xuất dành 2 tuần/bước để chờ an toàn và đủ mẫu; chờ 8 ngày từ nhận ca trước khi khóa dữ liệu **18/01/2027**, quyết định **20/01/2027**. Đề xuất cuối **Go có điều kiện**, chưa duyệt khởi động. **Duyệt chéo:** chờ hồ sơ nhóm được chấm và quyết định hội đồng thực tế trong [phiếu chấm](phieu_cham.md).
+Thiết kế: 20 nhân viên/nhóm, MDE 6 điểm, đúng 299 ca đầu/người, 5.980 ca thô/nhóm, DE 6,96; power chỉ **0,6418** nếu hiệu ứng 5 điểm. Lịch đề xuất dành 2 tuần/bước để chờ an toàn và đủ mẫu; chờ 8 ngày từ nhận ca trước khi khóa dữ liệu **18/01/2027**, quyết định **20/01/2027**. Đề xuất cuối **Go có điều kiện**, chưa duyệt khởi động.
+
+**EA1125 chấm nhóm bạn:** đã đánh giá hồ sơ TenNhomLab13 tại commit `217ec78` ngày 25/11/2026: C6 **10/10**, C7 **10/10**, C8 **5/10**, tổng **25/30**; đề xuất Go có điều kiện. [Phiếu chấm](phieu_cham.md) đã ghi câu trả lời do Tuấn chuyển lại: khoảng 30,7 ca/người/ngày, thu mẫu chính 19–28/12/2026 trong 10 ngày và theo dõi đến 04/01/2027; có phương án lùi lịch nếu sửa lỗi chậm. Phép tính lưu lượng đúng; vẫn cần xác nhận 299 ca cho từng nhân viên, mốc đủ 7 ngày theo dõi và người thực thi luật dừng trước khi nâng C8. Chờ hội đồng EA1125 xác nhận điểm/quyết định. **Điểm EA1125 nhận từ nhóm khác:** chưa được cung cấp; không dùng 25/30 chấm nhóm bạn làm điểm của EA1125.
 
 ## 5. Khó khăn và cách xử lý
 
