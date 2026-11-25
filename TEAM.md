@@ -6,8 +6,9 @@
 - Lớp theo tên repo: L3B.
 - Repo nhóm: `K5-L3B-DAY13-EA1125-LaunchEconomics`.
 - URL: https://github.com/phamtuan2xx3-alt/K5-L3B-DAY13-EA1125-LaunchEconomics
-- Nhánh nộp, commit chốt: bổ sung sau khi kiểm tra và đóng gói.
-- TV1 đã xác nhận: PHẠM QUANG TUẤN — MSSV 2A202603824. Tên và thông tin TV2–TV4 bổ sung sau. Các mục dưới đây là kế hoạch, chưa phải bằng chứng đã hoàn thành.
+- Nhánh nộp, commit chốt: main
+- TV1 đã xác nhận: PHẠM QUANG TUẤN — MSSV 2A202603824.
+- TV3 đã xác nhận: CHU VĂN NHẬT — MSSV 2A202603848.
 
 ## Thành viên và trách nhiệm chính
 
@@ -15,7 +16,7 @@
 | --- | --- | --- | --- | --- | --- |
 | TV1 | PHẠM QUANG TUẤN | 2A202603824 | Bổ sung sau | Bổ sung sau | Viết code trước giải lao; phụ trách kinh tế và kế hoạch pilot |
 | TV2 | Bổ sung sau | Bổ sung sau | Bổ sung sau | Bổ sung sau | Kiểm số; viết code sau giải lao; kiểm tra bản tích hợp |
-| TV3 | Bổ sung sau | Bổ sung sau | Bổ sung sau | Bổ sung sau | Gắn nhãn độc lập 1; phụ trách bảng lỗi và đặc tả chỉ số |
+| TV3 | Chu Văn Nhật | 2A202603848 | Bổ sung sau | Bổ sung sau | Gắn nhãn độc lập 1; phụ trách bảng lỗi và đặc tả chỉ số |
 | TV4 | Bổ sung sau | Bổ sung sau | Bổ sung sau | Bổ sung sau | Gắn nhãn độc lập 2; giữ hồ sơ, ghi duyệt chéo và tổng hợp báo cáo |
 
 ## Việc cụ thể và điều kiện bàn giao
@@ -42,7 +43,7 @@
 
 **Bàn giao:** `bang_chi_phi.md` đầy đủ A–B; số tự tính lệch không quá 2% so với số đối chiếu; đủ D1 a–e; 3 chỉ số có phép tính; script chạy hết và YAML parse thành công. Nếu chưa chạy trên máy khác thì ghi rõ chưa đạt bước đó.
 
-### TV3 · Nhãn độc lập 1, bảng lỗi và chỉ số/event
+### TV3 · Chu Văn Nhật · Nhãn độc lập 1, bảng lỗi và chỉ số/event
 
 1. **Trước CP3:** chuẩn bị khung `bang_loi.md`, định nghĩa 5 loại lỗi và dự thảo công thức chỉ số/event trong `chi_so.md`. Để phần nhãn tham khảo trong hướng dẫn đến sau bước gắn nhãn độc lập.
 2. **CP3, 8 phút đầu:** tự gắn nhãn đủ 20 ca từ đề bài DOCX; không trao đổi hoặc xem nhãn TV4. Lưu bộ nhãn gốc trước khi so.
@@ -69,7 +70,7 @@
 Các giờ dưới đây theo lịch mẫu buổi chiều; nếu lớp học giờ khác, giữ thứ tự và thời lượng theo coach. Giải lao 15:20–15:35.
 
 | Mốc | TV1 | TV2 | TV3 | TV4 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | 14:00–14:10 | Chuẩn bị môi trường và code | Kiểm dữ liệu, giá, công thức | Chuẩn bị khung lỗi/chỉ số | Điền thông tin nhóm, khung hồ sơ |
 | 14:10–14:53 · CP1 | Viết và chạy A1–A4 | Tính tay, đối chiếu, điền bảng A | Chuẩn bị công thức và event E1 | Cập nhật hồ sơ từ bảng A |
 | 14:53–15:20 · CP2 | Viết và chạy B1–B4 | Kiểm số và điền bảng B | Tiếp tục đặc tả event/an toàn | Chuẩn bị checklist và hồ sơ |
@@ -115,7 +116,7 @@ Mỗi người copy `report/team/MSSV_HoTen.md` thành `report/team/<MSSV>_<HoTe
 | --- | --- | --- | --- |
 | TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B, phép tính hỗ trợ D1, bản đề xuất pilot và rủi ro kinh tế; chờ nhóm kiểm độc lập | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md` | Chưa xác nhận |
 | TV2 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
-| TV3 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
+| TV3 · Chu Văn Nhật · 2A202603848 | Gắn nhãn độc lập 20 ca lỗi ở Nhiệm vụ C, đồng thuận 90%, viết quy tắc phân biệt và bảng khắc phục 5 ca; hoàn thiện báo cáo cá nhân | `report/team/bang_loi.md`; báo cáo `2A202603848_ChuVanNhat.md` | Chưa xác nhận |
 | TV4 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
 
 ## Nguồn yêu cầu
