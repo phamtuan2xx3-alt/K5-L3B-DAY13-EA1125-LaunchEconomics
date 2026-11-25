@@ -44,3 +44,5 @@
 
 - Hoàn thành đầy đủ phần tổng hợp hồ sơ, báo cáo nhóm, báo cáo cá nhân và rà soát nhất quán trước giờ duyệt chéo Gate 2a.
 - Việc còn lại: ghi nhận kết quả thực tế vào `report/team/phieu_cham.md` trong buổi duyệt chéo 17:00–17:45, cập nhật mục kết quả duyệt chéo trong `group_report.md`, commit/push bản cuối và tự nộp link repo trên LMS trước 23:59 GMT+7.
+
+**Ghi chú tích hợp:** các con số 7 event/2 chỉ số tự đề xuất ở trên là bản TV4 đã nộp trên nhánh `truien`. Khi gộp với TV3, đặc tả cuối thống nhất 14 event/4 chỉ số đề xuất và 4 rủi ro, code tính E1 và dự toán pilot riêng; lịch đề xuất được rà lại để đủ trưởng thành. Phần duyệt chéo và LMS vẫn chờ thực tế.

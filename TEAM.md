@@ -3,7 +3,7 @@
 ## Thông tin nhóm
 
 - Tên nhóm theo tên repo: EA1125.
-- Lớp theo tên repo: L3B.
+- Lớp: L3B-H202 (L3B trong tên repo; theo hồ sơ TV4).
 - Repo nhóm: `K5-L3B-DAY13-EA1125-LaunchEconomics`.
 - URL: https://github.com/phamtuan2xx3-alt/K5-L3B-DAY13-EA1125-LaunchEconomics
 - Nhánh nộp, commit chốt: main
@@ -73,7 +73,7 @@ Các mục phân công dưới đây là kế hoạch; đóng góp thực tế v
 Các giờ dưới đây theo lịch mẫu buổi chiều; nếu lớp học giờ khác, giữ thứ tự và thời lượng theo coach. Giải lao 15:20–15:35.
 
 | Mốc | TV1 | TV2 | TV3 | TV4 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | 14:00–14:10 | Chuẩn bị môi trường và code | Kiểm dữ liệu, giá, công thức | Chuẩn bị khung lỗi/chỉ số | Điền thông tin nhóm, khung hồ sơ |
 | 14:10–14:53 · CP1 | Viết và chạy A1–A4 | Tính tay, đối chiếu, điền bảng A | Chuẩn bị công thức và event E1 | Cập nhật hồ sơ từ bảng A |
 | 14:53–15:20 · CP2 | Viết và chạy B1–B4 | Kiểm số và điền bảng B | Tiếp tục đặc tả event/an toàn | Chuẩn bị checklist và hồ sơ |
@@ -101,7 +101,7 @@ Luồng bàn giao: **output A/B → bảng chi phí → phạm vi pilot và rủ
 
 ## Checklist chung trước khi nộp
 
-- [x] TV2 xác nhận A1 đạt cả 3 phép thử; script chạy hết trong `src/` trên máy khác trong nhóm; số đối chiếu trong sai số 2%.
+- [ ] TV2 chạy lại bản tích hợp cuối trong `src/` trên máy mình và lưu output/commit. Báo cáo TV2 đã xác nhận 9/9 test của bản TV1 ban đầu; lượt tích hợp có thêm E1/dự toán và 13 test nên cần xác nhận lại bản mới. A1 và số đối chiếu đã kiểm tại workspace.
 - [x] TV1/TV2 xác nhận mọi số lấy từ phút giả lập, kể cả tổng chi phí và tỉ lệ dẫn xuất, có nhãn `simulated`; số do code nhóm tính hoặc tính tay có cách tính.
 - [x] TV3/TV4 giữ đủ 2 bộ nhãn độc lập, quy tắc bất đồng và 5 ca khắc phục có cách đo cùng vai trò phụ trách.
 - [x] TV1/TV2 xác nhận D1/D2 đủ, YAML parse được, không còn dấu hỏi ngoài chú thích và có ít nhất 3 luật dừng đủ 4 vế.
@@ -117,12 +117,14 @@ Mỗi người copy `report/team/MSSV_HoTen.md` thành `report/team/<MSSV>_<HoTe
 
 | Thành viên | Phần đã làm | File/commit/output làm bằng chứng | Xác nhận nộp LMS |
 | --- | --- | --- | --- |
-| TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B, phép tính hỗ trợ D1, bản đề xuất pilot và rủi ro kinh tế; chờ nhóm kiểm độc lập | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md` | Chưa xác nhận |
+| TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B/D1, kế hoạch pilot, rủi ro; tích hợp nhánh TV4, hoàn thiện E1 và rà hồ sơ theo yêu cầu sau bàn giao | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md`; `report/team/nghiem_thu.md` | Chưa xác nhận |
 | TV2 · NGUYỄN THANH TÙNG · 2A202603807 | Kiểm số độc lập (đối chiếu 0% lệch), hoàn thiện bảng chi phí A–B, chạy nghiệm thu 9/9 test trên máy TV2 | `report/team/bang_chi_phi.md`; `tests/test_lab13.py` (9 tests pass); báo cáo `report/team/2A202603807_NguyenThanhTung.md` | Chưa xác nhận |
 | TV3 · Chu Văn Nhật · 2A202603848 | Gắn nhãn độc lập 20 ca lỗi ở Nhiệm vụ C (đồng thuận 90%), hoàn thiện bảng khắc phục 5 ca; hoàn tất đặc tả chỉ số E1 (3 chỉ số tính thử + 2 đề xuất, 8 event có trace_id) và 3 rủi ro kinh tế E2; hoàn thiện báo cáo cá nhân | `report/team/bang_loi.md`; `report/team/chi_so.md`; báo cáo `2A202603848_ChuVanNhat.md` | Chưa xác nhận |
 | TV4 · Nguyễn Trọng Truyền · 2A202603868 | Gắn nhãn độc lập 2 (C), hoàn thiện `chi_so.md` (E1/E2), chốt `ho_so_launch_v0.md` 7 mục, tổng hợp `group_report.md`, cập nhật `TEAM.md` và rà checklist trước duyệt chéo | `report/team/ho_so_launch_v0.md`; `report/team/chi_so.md`; `report/team/group_report.md`; `TEAM.md`; `report/team/bang_loi.md`; báo cáo `2A202603868_NguyenTrongTruyen.md` | Chưa xác nhận |
 
 ## Nguồn yêu cầu
+
+Bản tích hợp nhận main `cf78f04` (TV2/TV3) và nhánh TV4 `f9dd0b0` qua merge `8f86b35`. Các xác nhận nhãn và máy TV2 ở trên theo báo cáo đã nộp của từng người; kiểm tra code trong lượt tích hợp không thay cho xác nhận cá nhân, hội đồng hoặc LMS. Đặc tả cuối có 14 event và 4 chỉ số đề xuất, giữ ý tưởng của TV3 và TV4. Bằng chứng và việc còn chờ: [nghiệm thu](report/team/nghiem_thu.md).
 
 - [README.md](README.md), [CHECKPOINTS.md](CHECKPOINTS.md): vai trò, checkpoint, mốc 17:00 và đổi người viết code sau giải lao.
 - [RULES.md](RULES.md): số liệu, hai bộ nhãn độc lập, dữ liệu gốc và khai báo AI.

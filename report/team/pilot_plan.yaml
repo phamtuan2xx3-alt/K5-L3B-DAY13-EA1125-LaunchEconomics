@@ -1,5 +1,5 @@
 # Lab 13 · TV1 PHẠM QUANG TUẤN · 2A202603824 · Gate 2a
-# Bản đề xuất để TV2 kiểm số, TV3 kiểm an toàn và TV4 tích hợp; chưa phê duyệt pilot.
+# Bản tích hợp nhóm EA1125; chưa phê duyệt hoặc khởi động pilot.
 # Nguồn: src/lab13.py; output report/team/TV1_ket_qua.txt.
 # D1 · baseline 0,70; alpha 0,05; power 0,80; ICC 0,02:
 # a) Chia theo yêu cầu, MDE 5 điểm: 1.251 yêu cầu độc lập mỗi nhóm.
@@ -23,7 +23,12 @@
 pilot:
   status: draft_for_team_review
   author: "PHẠM QUANG TUẤN — 2A202603824 — TV1"
+  contributors: ["Nguyễn Thanh Tùng — TV2", "Chu Văn Nhật — TV3", "Nguyễn Trọng Truyền — TV4"]
   owner: "Giám đốc vận hành LogiX-VN"
+  max_attempts: 2
+  cost_reference: >-
+    CPS theo loại và A4 là số tham chiếu mẫu gốc tối đa 3 lần, không phải dự toán sau cắt 2 lần.
+    Dự toán đúng phạm vi và giới hạn 2 lần ở budget_estimate; mọi chi phí có phút simulated.
   scope: >-
     Chỉ noi_dia và hang_nang tại 12 depot giả định của LogiX-VN, với 40 nhân viên
     đủ điều kiện. CPS theo loại lần lượt 2.695,64 và 8.220,74 đ (simulated).
@@ -43,13 +48,14 @@ pilot:
   rollout: [0.10, 0.25, 0.50]
   rollout_denominator: "40 nhân viên toàn công ty, tương ứng 4/10/20 nhân viên bật trợ lý."
   rollout_schedule:
-    - {share: 0.10, start: "2026-11-30", end: "2026-12-06", purpose: "Kiểm tra luồng và xem lại 100%; chưa phân tích hiệu quả."}
-    - {share: 0.25, start: "2026-12-07", end: "2026-12-13", purpose: "Đo phút thực tế và thử giảm xem lại khi kiểm toán đạt."}
-    - {share: 0.50, start: "2026-12-14", end: "2026-12-27", purpose: "Thu mẫu chính, ít nhất 299 yêu cầu/người; không gộp giai đoạn làm quen."}
+    - {share: 0.10, start: "2026-11-30", end: "2026-12-13", purpose: "Kiểm tra luồng và xem lại 100%; đủ thời gian trưởng thành và 3 lần kiểm tra an toàn."}
+    - {share: 0.25, start: "2026-12-14", end: "2026-12-27", purpose: "Đo phút thực tế, chờ cohort an toàn và thử giảm xem lại khi kiểm toán đạt."}
+    - {share: 0.50, start: "2026-12-28", end: "2027-01-10", purpose: "Thu mẫu chính, 299 yêu cầu/người; không gộp giai đoạn làm quen."}
   schedule_rationale: >-
     Ước lượng 1.500*982/1.200=1.227,5 yêu cầu trong phạm vi mỗi ngày toàn công ty,
     khoảng 613,75 mỗi nhóm. Một tuần chỉ khoảng 4.296 yêu cầu/nhóm, chưa đủ 5.980.
-    Giữ bước 0.50 trong 2 tuần; thực tế chỉ đủ mẫu khi từng nhân viên có ít nhất 299 ca.
+    Mỗi bước dự kiến 2 tuần: bước 0.10/0.25 phải chờ cohort đủ theo dõi và 3 lần kiểm tra an toàn,
+    bước 0.50 cần đủ lưu lượng. Chỉ đủ mẫu khi từng nhân viên có ít nhất 299 ca.
   schedule_policy: >-
     Các mốc là lịch dự kiến, không tự chuyển bước theo ngày. Chỉ tăng rollout khi có đủ
     cohort an toàn đã theo dõi trọn 7 ngày sau đóng và hoàn thành mọi điều kiện kiểm toán.
@@ -61,6 +67,10 @@ pilot:
     numerator: "Yêu cầu hợp lệ đóng trong 24 giờ và không mở lại trong 7 ngày."
     denominator: "Toàn bộ yêu cầu hợp lệ đã qua 8 ngày từ tiếp nhận (24 giờ để đóng và 7 ngày theo dõi), kể cả ca không đóng, theo nhóm nhân viên được phân ban đầu."
     analysis: "Theo phân nhóm ban đầu, gồm cả ca không mở trợ lý hoặc chuyển nhân viên; điều chỉnh cụm staff và tầng depot."
+    sampling_policy: >-
+      Mỗi nhân viên lấy đúng 299 yêu cầu hợp lệ đầu tiên theo thời gian tiếp nhận trong bước 0.50,
+      lưu danh sách trước khi xem kết quả. Giữ cả ca làm thay, không đóng và không mở trợ lý.
+      Ca dư vẫn theo dõi an toàn nhưng không thêm vào phân tích chính để giữ m=299 và DE=6,96.
     baseline: 0.70
     mde: 0.06
     alpha: 0.05
@@ -73,13 +83,26 @@ pilot:
     effective_n_per_arm: 859.1954022988506
     power_if_true_effect_0_05: 0.6418
     success_criterion: "Chênh can thiệp - đối chứng >=6 điểm phần trăm, CI 95% điều chỉnh cụm không chứa 0, và đạt mọi guardrail."
-    maturity_date: "2027-01-04"
-    maturity_rule: "Ca tiếp nhận đến hết 27/12/2026 phải qua 8 ngày; khóa dữ liệu sau 23:59 GMT+7 ngày 04/01/2027. Ca không đóng trong 24 giờ tính thất bại, không loại khỏi mẫu số."
+    maturity_date: "2027-01-18"
+    maturity_rule: "Ca tiếp nhận đến hết 10/01/2027 phải qua 8 ngày; khóa dữ liệu sau 23:59 GMT+7 ngày 18/01/2027. Ca không đóng trong 24 giờ tính thất bại, không loại khỏi mẫu số."
     insufficient_sample: "Không tuyên bố hiệu quả; No-go mở rộng và lập kế hoạch thu thêm mẫu, không tự đổi MDE sau khi xem kết quả."
   identifiability:
     concurrent_control: "20 đối chứng cùng kỳ, cùng loại yêu cầu, cùng chính sách và phân tầng depot; không lấy đợt chạy thử làm đối chứng."
     spillover_risk: "Nhân viên chia sẻ gợi ý trong depot; giới hạn tài khoản, ghi staff_id/arm/trace_id và kiểm tra mỗi ngày."
     predeclared: "Chốt trước 2026-11-30: danh sách phân nhóm, seed, phạm vi, MDE, chỉ số, luật dừng, cửa sổ thu mẫu và ngày quyết định."
+  safety_metric:
+    name: mo_lai_trong_7_ngay
+    cohort: >-
+      Theo dõi mọi yêu cầu trong phạm vi của từng arm, kể cả ngoài mẫu chính.
+      Chốt cohort theo ngày tiếp nhận; mỗi lần kiểm tra dùng các ngày nhận đã khóa từ trước,
+      theo thứ tự thời gian, đủ ít nhất 100 yêu cầu mỗi arm và đã qua cửa sổ theo dõi.
+      Không chọn bỏ ngày có ca lỗi hoặc chưa có kết quả. Yêu cầu mới thuộc cohort khác,
+      được báo riêng và không làm cohort đã khóa trở thành thiếu dữ liệu.
+      Đếm request duy nhất mở lại trong 7 ngày sau lần đóng đầu; chỉ phân tích cohort đã đủ theo dõi.
+      Ca đóng muộn phải chờ đủ 7 ngày sau đóng. Ca chưa đóng/thiếu log báo riêng là chưa có kết quả;
+      không mặc định an toàn và không được tăng rollout khi cohort đang dùng quyết định còn thiếu.
+      Hoàn trùng giám sát ngay với mọi ca, không chờ trưởng thành cohort.
+    required_events: [refund_request_created, ticket_closed, ticket_reopened, event_window_finalized]
   review_policy: >-
     Bước 0.10 xem lại 100%. Trưởng nhóm CSKH chỉ đề xuất giảm theo bậc 100%-50%-25%
     sau khi tỷ lệ sửa+bỏ dưới 15% và kiểm toán mẫu 100 ca/tuần không có sai tiền hoặc hoàn trùng.
@@ -117,7 +140,20 @@ pilot:
     - "Kỹ sư trưởng agent kiểm chứng khóa chống trùng, xác nhận sổ cái trước thông báo và cờ rollback trước 2026-11-30; hiện chưa có bằng chứng."
     - "TV2 đối chiếu D1 và baseline; TV3 kiểm luật an toàn từ nhãn độc lập; TV4 rà nhất quán hồ sơ trước khi nộp hội đồng."
     - "Kỹ sư trưởng agent bật event có trace_id; Trưởng nhóm CSKH đo phút thực tế và kiểm lại mô hình sau tuần 1, trước 2026-12-07."
-  decision_date: "2027-01-05"
+  budget_estimate:
+    label: simulated
+    assumptions: "Cơ cấu mẫu giữ nguyên; giá lab; quy ước B3 cộng 12.000 đ cho mọi ca phải làm thủ công; chưa phải báo giá thực tế."
+    sample_scope_requests: 982
+    sample_scope_successes: 892
+    sample_scope_manual_requests: 90
+    sample_excluded_manual_requests: 218
+    sample_agent_cost_vnd: 2900391.39
+    sample_company_system_cost_vnd: 6596391.39
+    company_cost_per_request_with_fixed_vnd: 6385.881713888889
+    company_cost_per_request_half_volume_vnd: 7274.770602777777
+    fixed_cost_vnd_per_month: 40000000
+    company_requests_per_month: 45000
+  decision_date: "2027-01-20"
   decision_owner: "Giám đốc vận hành LogiX-VN"
   decision_rule: >-
     Go có điều kiện cho phạm vi đã thử chỉ khi đủ 20 cụm và 5.980 yêu cầu thô mỗi nhóm,

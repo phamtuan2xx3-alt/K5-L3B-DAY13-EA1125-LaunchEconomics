@@ -4,7 +4,7 @@
 
 - Họ tên: PHẠM QUANG TUẤN.
 - MSSV: 2A202603824.
-- Lớp/nhóm theo repo: L3B / EA1125.
+- Lớp/nhóm: L3B-H202 / EA1125.
 - Email: chưa bổ sung.
 - Vai: TV1 — viết code A–B, phụ trách kinh tế và kế hoạch pilot D.
 
@@ -36,6 +36,10 @@ Codex hỗ trợ đọc yêu cầu, chia việc, viết code, soạn bản nháp
 
 Phần tự kiểm tra của cá nhân Tuấn: **chờ xác nhận**. Cần tự chạy lệnh ở bản bàn giao, giải thích vì sao cộng mọi lần chạy nhưng chia số thành công, vì sao B3 chọn 2 lần và vì sao 20 cụm/nhóm không đủ cho MDE 5 điểm. Các kiểm tra do Codex chạy không được ghi thành đã chạy trên máy thành viên khác.
 
-## 6. Tự đánh giá
+## 6. Cập nhật tích hợp toàn nhóm
 
-Bản triển khai TV1 sẵn sàng bàn giao kiểm số và tích hợp. Cần Tuấn đọc, tự kiểm tra và bổ sung nhận xét cá nhân; TV2 xác nhận chạy máy khác; TV3/TV4 hoàn thành nhãn độc lập và hội đồng thực hiện duyệt chéo. Chưa xác nhận nộp LMS.
+Sau khi nhận thêm yêu cầu rà và hoàn thiện, đã pull main TV2/TV3, gộp nhánh TV4 `truien`, giữ danh tính và đóng góp của cả 4 người. Codex hỗ trợ bổ sung phép tính E1 (994/1.200, 48/177, 51/1.200), dự toán đúng phạm vi pilot tối đa 2 lần, thống nhất 14 event, rà báo cáo và lịch mẫu. Chi phí hệ thống có cố định toàn công ty là 6.385,88 đ/yêu cầu (simulated) ở 45.000 yêu cầu/tháng. Kiểm thử và phần chờ thực tế ghi tại [nghiệm thu](nghiem_thu.md).
+
+## 7. Tự đánh giá
+
+Bản nhóm đã nhận báo cáo kiểm số/máy TV2 và nhãn TV3/TV4, tích hợp theo công việc đã giao. Cần Tuấn đọc, tự kiểm tra và bổ sung nhận xét cá nhân; hội đồng thực hiện duyệt chéo. Chưa xác nhận nộp LMS.

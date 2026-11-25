@@ -1,6 +1,6 @@
 """Lab 13 · Định giá agent và lập kế hoạch pilot (Gate 2a) — bài làm của nhóm (file nộp).
 Chạy trong thư mục src/: python lab13.py (hoặc thêm --output <file> để lưu bảng).
-TV1: PHẠM QUANG TUẤN, 2A202603824. Code A–B và phép tính hỗ trợ kế hoạch D.
+Nhóm EA1125: phân tích A–B, cỡ mẫu D1 và chỉ số E1; đóng góp xem TEAM.md.
 Dữ liệu trong hai file CSV là giả lập; mọi chi phí dùng phút giả lập mang nhãn simulated.
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 Nguồn công thức: docs/du_lieu_va_cong_thuc.md và hướng dẫn chi tiết Lab 13 trong repo.
@@ -120,8 +120,25 @@ def tinh_d1():
                 raw_n=c * m, effective_n=c * m / de, power5=float(power5))
 
 
+def tinh_e1(reqs):
+    """Chỉ số trên mẫu chạy thử đã hoàn tất theo dõi, đếm mỗi yêu cầu một lần.
+
+    Không có ca trong mẫu số thì ty_le=None, vì chưa có bằng chứng về tỷ lệ.
+    Dữ liệu mẫu không có đối chứng nên các tỷ lệ không phải tác động nhân quả.
+    """
+    xem_lai = reqs.loc[reqs.duoc_xem_lai.eq(1)]
+    counts = [
+        ('chinh', int((reqs.dong_trong_24h.eq(1) & reqs.mo_lai_trong_7_ngay.eq(0)).sum()), len(reqs)),
+        ('bo_qua', int(xem_lai.quyet_dinh_xem_lai.isin(['sua', 'bo']).sum()), len(xem_lai)),
+        ('mo_lai', int(reqs.mo_lai_trong_7_ngay.eq(1).sum()), len(reqs)),
+    ]
+    return [dict(chi_so=name, tu_so=numerator, mau_so=denominator,
+                 ty_le=numerator / denominator if denominator else None)
+            for name, numerator, denominator in counts]
+
+
 def tong_hop(runs, reqs):
-    """Tính A–B từ CSV, không thay dữ liệu đầu vào; thêm D1 và baseline phục vụ YAML."""
+    """Tính A–B, D1 và E1 từ CSV, không thay dữ liệu đầu vào."""
     goc = mo_hinh(runs, reqs)
     pham_vi = reqs.loc[reqs.loai.isin(['noi_dia', 'hang_nang'])]
     trong_pham_vi = mo_hinh(runs, pham_vi)
@@ -165,6 +182,17 @@ def tong_hop(runs, reqs):
         b3.append(dict(gioi_han=k, tong_tro_ly=kq['tong'], khong_thanh_cong=that_bai,
                        tong_he_thong=he_thong, he_thong_moi_yc=he_thong / len(reqs), cps=kq['cps']))
     scope_runs = runs.loc[runs.request_id.isin(pham_vi.request_id)]
+    pilot_model = mo_hinh(runs, pham_vi, max_lan_chay=2)
+    pilot_failed = len(pham_vi) - pilot_model['thanh_cong']
+    company_system = pilot_model['tong'] + (len(reqs) - pilot_model['thanh_cong']) * BASELINE
+    company_per_request = company_system / len(reqs)
+    pilot_economics = dict(
+        so_yc=len(pham_vi), thanh_cong=pilot_model['thanh_cong'], khong_thanh_cong=pilot_failed,
+        ngoai_pham_vi=len(reqs) - len(pham_vi), tong_tro_ly=pilot_model['tong'], cps=pilot_model['cps'],
+        he_thong_pham_vi=pilot_model['tong'] + pilot_failed * BASELINE,
+        he_thong_toan_cong_ty=company_system,
+        moi_yc_cong_ty_co_co_dinh=company_per_request + 40000000 / 45000,
+        moi_yc_cong_ty_nua_luu_luong=company_per_request + 40000000 / 22500)
     so_ok = scope_runs.loc[scope_runs.status.eq('ok'), 'request_id'].nunique()
     so_lam_lai = int(pham_vi.ket_qua.eq('lam_lai').sum())
     phut_tb = float(reqs.loc[reqs.ket_qua.eq('lam_lai'), 'phut_lam_lai_simulated'].mean())
@@ -183,15 +211,15 @@ def tong_hop(runs, reqs):
                   .groupby(['loai', 'attempt']).ok.mean().mul(100).unstack())
     return dict(a2=goc, a3=a3, a4=a4, scope=trong_pham_vi,
                 b1=b1, b2_cps=cap['cps'], b2_pct=(cap['cps'] / goc['cps'] - 1) * 100,
-                b3=b3, b4=b4, ok_theo_lan=ok_theo_lan,
-                d1=tinh_d1(), so_yc=len(reqs), so_runs=len(runs),
+                b3=b3, b4=b4, pilot_economics=pilot_economics, ok_theo_lan=ok_theo_lan,
+                d1=tinh_d1(), e1=tinh_e1(reqs), so_yc=len(reqs), so_runs=len(runs),
                 scope_so_yc=len(pham_vi),
                 mo_lai=int(reqs.mo_lai_trong_7_ngay.sum()),
                 scope_mo_lai=int(pham_vi.mo_lai_trong_7_ngay.sum()))
 
 
 def bao_cao(kq):
-    """Bảng bàn giao TV2–TV4; không điền thay hồ sơ của các thành viên khác."""
+    """Bảng tính chung của nhóm để đối chiếu hồ sơ A–E."""
     def bang(ten, rows):
         return ten + '\n' + pd.DataFrame(rows).to_string(index=False, float_format=lambda x: f'{x:,.3f}')
 
@@ -201,7 +229,7 @@ def bao_cao(kq):
         ('xem_lai', 'simulated'), ('lam_lai', 'simulated'), ('tong', 'simulated'),
         ('thanh_cong', 'CSV'), ('cps', 'simulated'), ('hoa_don_moi_yc', 'trace')]]
     sections = [
-        'TV1: PHẠM QUANG TUẤN — 2A202603824. Dữ liệu giả lập của lab; chi phí có phút giả lập ghi simulated.',
+        'Nhóm EA1125 · L3B. Dữ liệu giả lập của lab; chi phí có phút giả lập ghi simulated.',
         f'Dữ liệu: {kq["so_yc"]} yêu cầu, {kq["so_runs"]} lần chạy.',
         'A1: 1.20 / 1.25 / 1.25',
         bang('A2 · Chi phí từ mọi lần chạy (đồng)', a2_rows),
@@ -216,15 +244,23 @@ def bao_cao(kq):
         bang('B3 · Cộng 12.000 đ cho mỗi yêu cầu không thành công theo quy ước lab (simulated)', kq['b3']),
         'B3 · Giới hạn 2 lần rẻ nhất cho cả hệ thống; giới hạn 1 lần có CPS thấp nhất.',
         bang('B4 · Xem lại 100%, 5 phút/ca, phạm vi noi_dia + hang_nang (simulated)', kq['b4']),
-        'D1 · Hỗ trợ YAML của TV1; TV2 cần kiểm lại độc lập:',
+        bang('Dự toán pilot · Chỉ noi_dia + hang_nang, tối đa 2 lần (simulated)',
+             [dict(khoan=key, gia_tri=value) for key, value in kq['pilot_economics'].items()]),
+        'Dự toán pilot · Mỗi yêu cầu toàn công ty: gồm cả ca trong phạm vi phải làm thay và ca ngoài phạm vi làm thủ công; '
+        'cộng 40 triệu đồng cố định chia lưu lượng 45.000 hoặc 22.500 yêu cầu/tháng, giả định cơ cấu mẫu giữ nguyên.',
+        'D1 · Cỡ mẫu và đánh đổi theo cụm:',
         f'a) {d["n5"]} yêu cầu độc lập/nhóm; b) DE={d["de75"]:.2f}, {d["n75"]} yêu cầu, '
         f'{d["nhan_vien_moi_nhom"]} nhân viên/nhóm; c) trần {d["tran20"]:.0f}; d) trần {d["tran6"]:.0f}.',
         f'e) MDE 6 điểm: {d["n6"]} hiệu dụng/nhóm; 20 nhân viên x {d["m"]} yêu cầu = {d["raw_n"]} thô/nhóm; '
         f'DE={d["de"]:.2f}, hiệu dụng={d["effective_n"]:.3f}. Power nếu hiệu ứng thật 5 điểm: {d["power5"]:.4f}.',
         f'Baseline mở lại: {kq["mo_lai"]}/{kq["so_yc"]} = {kq["mo_lai"] / kq["so_yc"]:.4%}; '
         f'trong phạm vi {kq["scope_mo_lai"]}/{kq["scope_so_yc"]} = {kq["scope_mo_lai"] / kq["scope_so_yc"]:.4%}.',
+        bang('E1 · Chỉ số trong đợt chạy thử, chưa có đối chứng', [
+            dict(chi_so=row['chi_so'], tu_so=row['tu_so'], mau_so=row['mau_so'],
+                 ty_le_pct=row['ty_le'] * 100 if row['ty_le'] is not None else 'Chưa có mẫu')
+            for row in kq['e1']]),
         'Phạm vi: đề xuất noi_dia + hang_nang; quoc_te thiếu hiệu quả, doi_tac có điều khoản riêng.',
-        'Chưa xác nhận: kiểm tra trên máy TV2, hai bộ nhãn độc lập, duyệt chéo và phê duyệt pilot.',
+        'Duyệt chéo, phê duyệt pilot và nộp LMS cần bằng chứng thực tế; không suy ra từ output tính toán.',
     ]
     return '\n'.join(line.rstrip() for line in '\n\n'.join(sections).splitlines())
 

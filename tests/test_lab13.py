@@ -5,8 +5,11 @@ Chạy từ root: src/.venv/Scripts/python.exe -m unittest discover -s tests -v
 import hashlib
 import math
 from datetime import date, timedelta
+import os
 from pathlib import Path
+import subprocess
 import sys
+import tempfile
 import unittest
 
 import pandas as pd
@@ -85,6 +88,55 @@ class Lab13Tests(unittest.TestCase):
         self.assertLess(base['cps'], lab13.BASELINE)
         self.assertGreater(stress['cps'], lab13.BASELINE)
         self.assertAlmostEqual(stress['phut_lam_lai'], 1132 / 74)
+
+    def test_proposed_pilot_accounts_for_excluded_requests_and_fixed_cost(self):
+        self.assertIn('pilot_economics', self.kq, 'Thiếu dự toán đúng phạm vi pilot tối đa 2 lần.')
+        pilot = self.kq['pilot_economics']
+        self.assertEqual((pilot['so_yc'], pilot['thanh_cong'], pilot['khong_thanh_cong'], pilot['ngoai_pham_vi']),
+                         (982, 892, 90, 218))
+        self.assertAlmostEqual(pilot['tong_tro_ly'], 2900391.39)
+        self.assertAlmostEqual(pilot['he_thong_pham_vi'], 3980391.39)
+        self.assertAlmostEqual(pilot['he_thong_toan_cong_ty'], 6596391.39)
+        self.assertAlmostEqual(pilot['moi_yc_cong_ty_co_co_dinh'], 6385.8817139, places=5)
+        self.assertAlmostEqual(pilot['moi_yc_cong_ty_nua_luu_luong'], 7274.7706028, places=5)
+
+    def test_e1_matches_three_metric_numerators_and_denominators(self):
+        self.assertTrue(hasattr(lab13, 'tinh_e1'), 'Thiếu phép tính E1 trong code nhóm.')
+        rows = lab13.tinh_e1(self.reqs)
+        expected = [('chinh', 994, 1200, 994 / 1200),
+                    ('bo_qua', 48, 177, 48 / 177),
+                    ('mo_lai', 51, 1200, 51 / 1200)]
+        self.assertEqual(len(rows), 3)
+        for row, (name, numerator, denominator, rate) in zip(rows, expected):
+            self.assertEqual((row['chi_so'], row['tu_so'], row['mau_so']),
+                             (name, numerator, denominator))
+            self.assertAlmostEqual(row['ty_le'], rate)
+
+    def test_e1_ignores_unreviewed_decisions_and_handles_zero_denominators(self):
+        self.assertTrue(hasattr(lab13, 'tinh_e1'), 'Thiếu phép tính E1 trong code nhóm.')
+        fixture = pd.DataFrame(dict(dong_trong_24h=[1, 1, 0], mo_lai_trong_7_ngay=[0, 1, 0],
+                                    duoc_xem_lai=[1, 1, 0], quyet_dinh_xem_lai=['giu', 'sua', 'bo']))
+        rows = lab13.tinh_e1(fixture)
+        self.assertEqual((rows[0]['tu_so'], rows[0]['mau_so']), (1, 3))
+        self.assertEqual((rows[1]['tu_so'], rows[1]['mau_so'], rows[1]['ty_le']), (1, 2, 0.5))
+        no_reviews = fixture.assign(duoc_xem_lai=0)
+        self.assertIsNone(lab13.tinh_e1(no_reviews)[1]['ty_le'])
+        self.assertTrue(all(row['mau_so'] == 0 and row['ty_le'] is None
+                            for row in lab13.tinh_e1(fixture.iloc[:0])))
+
+    def test_cli_exports_e1_utf8_output_from_repo_root(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / 'ket_qua.txt'
+            result = subprocess.run([sys.executable, str(ROOT / 'src/lab13.py'), '--output', str(output)],
+                                    cwd=ROOT, env={**os.environ, 'PYTHONUTF8': '1'},
+                                    capture_output=True, text=True, encoding='utf-8')
+            self.assertEqual(result.returncode, 0, result.stderr)
+            report = output.read_text(encoding='utf-8')
+            for pattern in [r'chinh\s+994\s+1200\s+82\.833',
+                            r'bo_qua\s+48\s+177\s+27\.119',
+                            r'mo_lai\s+51\s+1200\s+4\.250']:
+                self.assertRegex(report, pattern)
+            self.assertIn('Ba phép thử đáp án biết trước: ĐẠT', result.stdout)
 
     def test_d1_and_yaml_contract(self):
         d = self.kq['d1']

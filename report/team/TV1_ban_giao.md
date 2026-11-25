@@ -1,6 +1,6 @@
 # TV1 · Bàn giao kinh tế và kế hoạch pilot
 
-**PHẠM QUANG TUẤN — 2A202603824 · EA1125 · L3B.** Phần A–B, bản đề xuất D và đầu vào rủi ro kinh tế được triển khai với Codex. TV2 kiểm số độc lập; TV3 kiểm an toàn; TV4 tổng hợp hồ sơ. Chưa có xác nhận duyệt chéo hoặc phê duyệt pilot.
+**PHẠM QUANG TUẤN — 2A202603824 · EA1125 · L3B-H202.** Phần A–B, bản đề xuất D và đầu vào rủi ro kinh tế được triển khai với Codex. TV2 đã nộp kiểm số và báo cáo máy thứ hai; TV3/TV4 đã nộp nhãn và hồ sơ qua các nhánh. Bản tích hợp hiện có thêm E1 và dự toán pilot đúng giới hạn 2 lần. Chưa có kết quả duyệt chéo hoặc phê duyệt pilot.
 
 ## 1. Chạy lại và kiểm tra
 
@@ -17,7 +17,7 @@ Từ root repo:
 .\src\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-Output số liệu: [TV1_ket_qua.txt](TV1_ket_qua.txt). Code: [lab13.py](../../src/lab13.py). Kiểm thử: [test_lab13.py](../../tests/test_lab13.py). Môi trường đã chạy: Windows, Python 3.12.10; 9 kiểm thử đạt. Chạy lại trên máy khác trong nhóm vẫn chờ TV2 xác nhận.
+Output chung A–E giữ tên [TV1_ket_qua.txt](TV1_ket_qua.txt). Code: [lab13.py](../../src/lab13.py). Kiểm thử: [test_lab13.py](../../tests/test_lab13.py). Bản TV1 ban đầu đạt 9 kiểm thử; TV2 tự khai đã chạy 9/9 trên máy mình. Lượt tích hợp bổ sung kiểm thử E1/CLI/dự toán và ghi kết quả mới ở [nghiệm thu](nghiem_thu.md); không thay lời tự xác nhận của thành viên.
 
 ## 2. Số bàn giao TV2 điền bảng A–B
 
@@ -55,7 +55,7 @@ Toàn bộ CSV là dữ liệu giả lập của lab. Mọi số chi phí dùng 
 - Đề xuất ngẫu nhiên 20+20 nhân viên, MDE 6 điểm, 299 yêu cầu/người: 5.980 thô/nhóm, DE 6,96, hiệu dụng 859,195. Power ở hiệu ứng thật 5 điểm là 0,6418.
 - Baseline mở lại 51/1.200=4,25%; trong phạm vi 39/982=3,9715%. Luật dừng dùng chênh +2 điểm với đối chứng hoặc vượt 6%, cùng cửa sổ và mẫu tối thiểu đã ghi.
 - Rollout dự kiến 4→10→20 nhân viên. Bước cuối kéo dài 2 tuần vì một tuần chỉ ước khoảng 4.296 yêu cầu/nhóm, chưa đủ 5.980; thiếu 299 ca ở bất kỳ cụm nào thì chưa đủ điều kiện phân tích theo thiết kế.
-- Lịch dự kiến bắt đầu 30/11/2026, kết thúc thu mẫu 27/12/2026; tính 24 giờ để đóng cộng 7 ngày theo dõi, khóa dữ liệu sau 23:59 ngày 04/01/2027 và quyết định 05/01/2027 (GMT+7). Ca không đóng vẫn nằm trong mẫu số và tính thất bại. Các bước chỉ chuyển khi đủ dữ liệu an toàn trưởng thành; nếu trễ dẫn tới thiếu mẫu thì No-go mở rộng, không giả đủ mẫu theo lịch. Đây là lịch đề xuất chưa được duyệt.
+- Lịch tích hợp dự kiến bắt đầu 30/11/2026, dành 2 tuần/bước để đủ cửa sổ an toàn; kết thúc thu mẫu 10/01/2027. Tính 24 giờ đóng cộng 7 ngày theo dõi, khóa sau 23:59 ngày 18/01/2027, quyết định 20/01/2027 (GMT+7). Giữ đúng 299 ca hợp lệ đầu tiên/nhân viên; ca không đóng vẫn nằm trong mẫu số và tính thất bại. Nếu thiếu mẫu hoặc trưởng thành thì No-go mở rộng. Đây là lịch đề xuất, chưa phê duyệt.
 
 TV2 kiểm độc lập D1 và baseline; TV3 kiểm luật an toàn sau khi gắn nhãn thực tế; TV4 kiểm lịch, phạm vi và đề xuất cuối khớp hồ sơ launch.
 
@@ -76,6 +76,8 @@ Các ngưỡng theo dõi/hành động là đề xuất cho kế hoạch; tác �
 
 Điều kiện trước khi khởi động: Giám đốc vận hành duyệt đánh đổi MDE 6 điểm; Kỹ sư trưởng agent chứng minh chống hoàn trùng, sổ cái và rollback; bật event có `trace_id`; Trưởng nhóm CSKH có kế hoạch đo phút và giảm xem lại an toàn. Mốc kiểm tra đề xuất trước 30/11/2026; đo lại chi phí sau tuần 1 trước 07/12/2026.
 
-Chưa xác nhận: kiểm số của TV2 trên máy khác; hai bộ nhãn độc lập của TV3/TV4; đánh giá hội đồng; hồ sơ tổng hợp và nộp LMS. Không dùng bản bàn giao này làm bằng chứng các bước đó đã hoàn thành.
+Đã nhận hồ sơ TV2/TV3/TV4 và tích hợp, giữ nguồn đóng góp theo Git. Phần dự toán cuối [bảng chi phí](bang_chi_phi.md) tính riêng phạm vi pilot tối đa 2 lần: hệ thống/yêu cầu toàn công ty có cố định 6.385,88 đ ở 45.000 ca/tháng, 7.274,77 đ ở nửa lưu lượng (simulated); không dùng CPS gốc 3 lần thay chỉ số này.
+
+Chưa xác nhận kết quả hội đồng, phê duyệt điều kiện pilot, cá nhân Tuấn tự kiểm và nộp LMS. Không dùng kiểm thử code làm bằng chứng các bước này đã hoàn thành.
 
 Nguồn: [dữ liệu/công thức](../../docs/du_lieu_va_cong_thuc.md), [hướng dẫn lab](../../docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md), [checkpoints](../../CHECKPOINTS.md), [rubric](../../RUBRIC.md).

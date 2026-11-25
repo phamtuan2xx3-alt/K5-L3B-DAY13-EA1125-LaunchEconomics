@@ -1,6 +1,6 @@
 # Bảng chi phí · Nhiệm vụ A và B
 
-Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` ghi nhãn `simulated`. Mỗi câu trả lời không quá ba dòng, có ít nhất một con số.
+Số tính bằng [lab13.py](../../src/lab13.py), đối chiếu [output](TV1_ket_qua.txt). Hai CSV đều giả lập của lab. Mọi chi phí, tỷ trọng chi phí và tỷ lệ so baseline có dùng phút `_simulated` trong các bảng/giải thích dưới đây đều là **simulated**; số lượng và tỷ lệ kết quả lấy trực tiếp CSV. A2–A4/B4 dùng mẫu gốc tối đa 3 lần; B1/B3 ghi rõ từng giới hạn; dự toán pilot 2 lần nằm cuối file.
 
 ## A1 · Ba phép thử đáp án biết trước
 
@@ -19,7 +19,7 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 | Trong đó, phần của lần chạy thứ 2 và 3 | 93.804 | attempt lớn hơn 1 | đo từ trace |
 | Xem lại | 1.780.000 | `phut_xem_lai_simulated` | simulated |
 | Làm lại | 2.264.000 | `phut_lam_lai_simulated` | simulated |
-| Tổng chi phí | 4.373.585 | cộng các khoản trên | simulated |
+| Tổng chi phí | 4.373.585 | token + tool + xem lại + làm lại; không cộng lại dòng chạy thứ 2/3 | simulated |
 | Số việc thành công | 978 | `ket_qua` == 'thanh_cong' | đo từ trace |
 | Chi phí mỗi việc thành công | 4.472 | tổng chi phí ÷ số việc thành công | simulated |
 | Hoá đơn token và tool chia cho số yêu cầu | 274,7 | (token + tool) ÷ 1.200 | đo từ trace |
@@ -45,7 +45,7 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 | 45.000 yêu cầu/tháng | 33.750 | 1.185 đ | 4.599 đ [simulated] | 0,38× |
 | Một nửa khối lượng | 16.875 | 2.370 đ | 5.784 đ [simulated] | 0,48× |
 
-- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? Chi phí cố định 40 triệu đ/tháng không làm đổi kết luận ở quy mô đầy đủ (4.599 đ = 0,38×) lẫn nửa khối lượng (5.784 đ = 0,48×) vì đều rẻ hơn 12.000 đ. Tuy nhiên khi khối lượng giảm một nửa thì chi phí cố định tính trên mỗi việc tăng gấp đôi từ 1.185 đ lên 2.370 đ.
+- Chi phí cố định có đổi kết luận không? CPS có cố định vẫn dưới 12.000 đ ở 45.000 và 22.500 yêu cầu/tháng (4.599 và 5.784 đ, simulated). Đây là CPS trợ lý, chưa tính người làm thay; muốn kết luận cho công ty phải dùng chi phí hệ thống/yêu cầu như dự toán cuối file. Số thành công/tháng là `lưu lượng toàn công ty × 900/1.200`, không dùng mẫu số 982.
 
 ## B1 · Đổi từng yếu tố
 
@@ -78,5 +78,21 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 
 ## B4 · Nếu phải xem lại tất cả
 
-- Chi phí mỗi việc thành công khi xem lại 100% (`noi_dia` + `hang_nang`), so với 12.000 đ: Với giả định làm lại 9 phút, CPS là 11.743 đ [simulated] (0,98× của 12.000 đ). Với thời gian làm lại thực tế 15,3 phút/ca từ dữ liệu, CPS là 12.415 đ [simulated] (1,03×), đắt hơn nhân viên tự làm.
+- Chi phí mỗi việc thành công khi xem lại 100% (`noi_dia` + `hang_nang`), so với 12.000 đ: 948 ca xem lại ×5 phút và 48 ca làm lại ×9 phút cho CPS 11.742,79 đ (0,979×, simulated). Thay 9 bằng trung bình **simulated** `1.132/74 = 15,2973` phút/ca cho CPS **12.414,50 đ** (1,035×, simulated); đây chưa phải phút đo thật.
 - Kết quả này nói gì về thứ pilot cần học được? Xem lại 100% triệt tiêu lợi ích kinh tế vì chi phí xem lại chiếm 90% tổng chi. Pilot cần học được tỉ lệ xem lại an toàn có thể hạ xuống bao nhiêu % và thời gian xem lại có rút ngắn được dưới 4,8–5,1 phút hay không để giữ mức sinh lời.
+
+## Dự toán cho phạm vi pilot và giới hạn 2 lần
+
+Đề xuất dùng `noi_dia + hang_nang`, tối đa 2 lần. Quy ước chi phí làm thay theo B3, cơ cấu mẫu giữ nguyên khi ngoại suy; toàn bộ số chi phí dưới đây là **simulated**.
+
+| Khoản | Cách tính | Giá trị |
+| --- | --- | ---: |
+| Số yêu cầu trong phạm vi / thành công / phải làm thay | `mo_hinh(..., max_lan_chay=2)` | 982 / 892 / 90 |
+| Số yêu cầu ngoài phạm vi làm thủ công | 1.200−982 | 218 |
+| Chi phí trợ lý trong phạm vi | Token/tool mọi lần ≤2 + phút xem/làm lại theo quy ước lab | 2.900.391,39 đ |
+| Chi phí cả hệ thống trong phạm vi | 2.900.391,39 +90×12.000 | 3.980.391,39 đ |
+| Chi phí cả công ty trên mẫu | 3.980.391,39 +218×12.000 | 6.596.391,39 đ |
+| Chi phí hệ thống/yêu cầu toàn công ty, có cố định ở 45.000 ca/tháng | 6.596.391,39/1.200 +40.000.000/45.000 | **6.385,88 đ** |
+| Cùng chỉ số ở 22.500 ca/tháng | 6.596.391,39/1.200 +40.000.000/22.500 | **7.274,77 đ** |
+
+Hai dự toán cuối đều dưới baseline 12.000 đ/yêu cầu (simulated), nhưng phụ thuộc phút giả lập và chưa chứng minh hiệu quả thật. Đo phút thật, tính lại cùng mẫu số và giữ luật dừng trước khi đề xuất mở rộng.

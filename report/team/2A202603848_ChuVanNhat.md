@@ -1,14 +1,10 @@
 # Báo cáo cá nhân — ChuVanNhat-2A202603848
 
-Copy file này và đổi tên theo quy tắc `MSSV_HoTen.md`. Giữ nguyên file mẫu.
-
-Ví dụ: `20241234_NguyenVanAn.md`.
-
 ## 1. Thông tin thành viên
 
 - Họ tên: Chu Văn Nhật
 - MSSV: 2A202603848
-- Email: 
+- Email: chưa bổ sung.
 - Vai trong nhóm (người viết code, người kiểm số, người gắn nhãn 1, người gắn nhãn 2 kiêm giữ hồ sơ): Người gắn nhãn 1
 
 ## 2. Phần việc phụ trách
@@ -40,3 +36,5 @@ Ví dụ: `20241234_NguyenVanAn.md`.
 ## 6. Tự đánh giá
 
 - Hoàn thành đầy đủ trách nhiệm của Người gắn nhãn 1, phối hợp chặt chẽ với các thành viên trong nhóm, đảm bảo tính liêm chính học thuật và tuân thủ các quy định của buổi lab.
+
+**Ghi chú tích hợp:** các con số 8 event và 3 rủi ro ở trên mô tả bản TV3 đã nộp. Bản cuối kết hợp đóng góp TV4 thành 14 event, 4 chỉ số đề xuất và 4 rủi ro; giữ bộ nhãn gốc của Nhật. Lượt rà bằng Codex không thay xác nhận cá nhân hoặc kết quả hội đồng.

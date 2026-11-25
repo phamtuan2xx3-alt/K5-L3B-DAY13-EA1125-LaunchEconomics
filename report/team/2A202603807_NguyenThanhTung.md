@@ -19,7 +19,7 @@
   - Bảng B1 (9 kịch bản độ nhạy).
   - Bảng B2 (kịch bản cặp và xếp hạng 3 yếu tố nhạy nhất).
   - Bảng B3 (giới hạn chạy lại và chi phí cả hệ thống).
-  - Bảng B4 (kịch bản xem lại 100% với 9 phút và 15,3 phút thực tế).
+  - Bảng B4 (kịch bản xem lại 100% với giả định 9 phút và trung bình simulated 15,2973 phút).
 - Kiểm tra tính toán độc lập bộ kiểm thử tự động của nhóm (`tests/test_lab13.py`) trên máy TV2.
 - Chuẩn bị tiếp nhận quyền sửa code `src/lab13.py` sau giải lao cho nhiệm vụ D1 và E1.
 
@@ -31,7 +31,7 @@
 - **Hoàn thành hồ sơ `report/team/bang_chi_phi.md`:**
   - Điền đầy đủ 100% các bảng A1–A4 và B1–B4.
   - Gắn nhãn `simulated` cho toàn bộ các con số có nguồn gốc từ cột giả lập (`phut_xem_lai_simulated`, `phut_lam_lai_simulated`).
-  - Mọi câu trả lời giải thích kinh tế đều ngắn gọn ($\le 3$ dòng), có số liệu thực chứng và không dùng từ cấm "production".
+  - Mọi câu trả lời giải thích kinh tế đều ngắn gọn ($\le 3$ dòng), có số từ dữ liệu giả lập và tuân thủ thuật ngữ Gate 2a.
 - **Chạy kiểm chứng trên máy khác (nghiệm thu kỹ thuật):**
   - Đã chạy toàn bộ test suite `python -m unittest discover -s ..\tests -v` trên máy TV2: **9/9 bài kiểm thử ĐẠT 100%**.
   - Xác nhận tính toàn vẹn của code `src/lab13.py` do TV1 bàn giao.
@@ -46,7 +46,7 @@
 
 ## 5. Công cụ AI đã dùng
 
-- Dùng trợ lý AI hỗ trợ rà soát định dạng Markdown, kiểm tra chéo các bảng số liệu với rubric, quét từ cấm ("production") và soát lỗi quy cách nhãn `simulated`.
+- Dùng trợ lý AI hỗ trợ rà soát định dạng Markdown, kiểm tra chéo các bảng số liệu với rubric, quét thuật ngữ theo quy tắc 5 và soát nhãn `simulated`.
 - Tự kiểm tra của Tùng: Tự đối chiếu số liệu tính tay với output, tự chạy lệnh `unittest` trong terminal máy của mình, xác nhận giải thích kinh tế (vì sao giới hạn 2 lần rẻ nhất toàn công ty dù 1 lần có CPS trợ lý thấp nhất).
 
 ## 6. Tự đánh giá

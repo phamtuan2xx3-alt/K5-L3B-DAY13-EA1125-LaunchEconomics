@@ -31,6 +31,8 @@ Người gắn nhãn 1: Chu Văn Nhật (2A202603848) · Người gắn nhãn 2:
 
 **Tỉ lệ đồng thuận:** 18 / 20 = 90%
 
+Giữ nguyên hai cột nhãn đã được TV3/TV4 nộp qua commit `79d7c81` và `f9dd0b0`; lượt tích hợp không thay nhãn gốc hoặc giả làm người gắn nhãn. Tỷ lệ được kiểm lại bằng 18 dòng trùng/20 dòng; cột thống nhất khớp 20/20 nhãn tham chiếu trong hướng dẫn lab. Định nghĩa và bằng chứng tự khai nằm trong báo cáo của Nhật và Truyền.
+
 ## Quy tắc phân biệt cho các ca không trùng
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
@@ -45,7 +47,9 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
 | 9 | Do người dùng | Event `input_validation_failed`; cảnh báo khi quá 2% số yêu cầu/ngày | Tự động nhận diện định dạng mã sàn TMĐT và tra cứu sang mã vận đơn nội bộ LogiX; nếu không tra cứu được thì hiển thị hướng dẫn kèm hình ảnh minh họa vị trí mã vận đơn | PM trợ lý hoàn phí |
-| 7 | Hệ thống | Đối soát tự động mỗi giờ: phát hiện tin nhắn "đã hoàn" nhưng không có bản ghi sổ cái ghi nhận trạng thái OK cùng `trace_id`; ngưỡng cảnh báo: 0 ca | Chỉ phát thông báo "đã hoàn" sau khi API sổ cái trả mã 200/OK; nếu gặp lỗi 503 sau 3 lần thử lại thì chuyển trạng thái "đang xử lý" và điều hướng sang nhân viên CSKH | Kỹ sư trưởng agent |
-| 18 | Ngữ cảnh | Tỉ lệ yêu cầu bị mở lại (re-open) vì khiếu nại số tiền nhưng kiểm tra thấy đúng chính sách, thống kê theo tuần | Mẫu tin nhắn kết quả luôn hiển thị rõ công thức và số liệu tính toán chi tiết (ví dụ: Phí 30.000 đ × 50% = 15.000 đ) | Trưởng nhóm CSKH |
-| 4 | Giới hạn hệ thống | Event `handoff_to_staff` với lý do `thieu_du_lieu`, phân loại theo loại yêu cầu (`quoc_te`) | Giữ quy trình chuyển giao nhân viên kèm tóm tắt ngữ cảnh chặng; đồng thời loại bỏ nhóm đơn quốc tế ra khỏi phạm vi pilot giai đoạn đầu | PM trợ lý hoàn phí |
+| 7 | Hệ thống | Mỗi giờ nối `customer_notification_sent` loại `refund_confirmed` với `refund_ledger_write` theo `request_id` và `refund_operation_id`; ≥1 ca thiếu xác nhận thành công trước thông báo thì cảnh báo | Chỉ thông báo khi sổ cái xác nhận thành công; mã HTTP 200 đơn thuần chưa đủ. Quá giới hạn 2 lần chạy pilot thì báo đang xử lý và chuyển nhân viên; giữ cùng idempotency_key khi thử lại | Kỹ sư trưởng agent |
+| 18 | Ngữ cảnh | Hằng tuần, số request `ticket_reopened.reason=so_tien` được kiểm toán xác nhận đúng chính sách / số request trưởng thành; ≥2% thì rà nội dung, thiếu mẫu báo riêng | Mẫu tin nhắn ghi cách tính rõ, ví dụ phí 30.000 đ ×50% =15.000 đ | Trưởng nhóm CSKH |
+| 4 | Giới hạn hệ thống | Thống kê hằng ngày `handoff_to_staff.reason=thieu_du_lieu` theo loại; ≥1 ca quoc_te được bật trợ lý trong pilot thì báo cấu hình sai | Chuyển nhân viên kèm tóm tắt; loại quoc_te khỏi pilot | PM trợ lý hoàn phí |
 | 17 | Ngầm | Kiểm tra đối soát ngẫu nhiên 100 đơn/tuần so với bảng giá hiện hành trên cơ sở dữ liệu; ngưỡng cảnh báo: lệch từ 1% số đơn | Tự động xóa cache cấu hình giá khi có sự kiện cập nhật bảng giá mới; đồng thời ghi rõ phiên bản bảng giá (price_version) vào trace của mỗi lượt chạy | Kế toán trưởng |
+
+Các ngưỡng là đề xuất cho pilot, không phải sự kiện đã quan sát. Danh sách event, thời gian và khóa nối chuẩn nằm ở [chi_so.md](chi_so.md); `audit_sample_checked` dùng tiền chuẩn và price_version để bắt lỗi ngầm, không chỉ dựa vào khiếu nại của khách.

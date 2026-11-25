@@ -1,6 +1,6 @@
 Ba phép thử đáp án biết trước: ĐẠT
 
-TV1: PHẠM QUANG TUẤN — 2A202603824. Dữ liệu giả lập của lab; chi phí có phút giả lập ghi simulated.
+Nhóm EA1125 · L3B. Dữ liệu giả lập của lab; chi phí có phút giả lập ghi simulated.
 
 Dữ liệu: 1200 yêu cầu, 1624 lần chạy.
 
@@ -69,7 +69,22 @@ B4 · Xem lại 100%, 5 phút/ca, phạm vi noi_dia + hang_nang (simulated)
         9.000         948          48 10,568,513.274 11,742.793            0.979             5.122
        15.297         948          48 11,173,053.815 12,414.504            1.035             4.803
 
-D1 · Hỗ trợ YAML của TV1; TV2 cần kiểm lại độc lập:
+Dự toán pilot · Chỉ noi_dia + hang_nang, tối đa 2 lần (simulated)
+                       khoan       gia_tri
+                       so_yc       982.000
+                  thanh_cong       892.000
+            khong_thanh_cong        90.000
+               ngoai_pham_vi       218.000
+                 tong_tro_ly 2,900,391.390
+                         cps     3,251.560
+            he_thong_pham_vi 3,980,391.390
+       he_thong_toan_cong_ty 6,596,391.390
+   moi_yc_cong_ty_co_co_dinh     6,385.882
+moi_yc_cong_ty_nua_luu_luong     7,274.771
+
+Dự toán pilot · Mỗi yêu cầu toàn công ty: gồm cả ca trong phạm vi phải làm thay và ca ngoài phạm vi làm thủ công; cộng 40 triệu đồng cố định chia lưu lượng 45.000 hoặc 22.500 yêu cầu/tháng, giả định cơ cấu mẫu giữ nguyên.
+
+D1 · Cỡ mẫu và đánh đổi theo cụm:
 
 a) 1251 yêu cầu độc lập/nhóm; b) DE=2.48, 3103 yêu cầu, 42 nhân viên/nhóm; c) trần 1000; d) trần 300.
 
@@ -77,6 +92,12 @@ e) MDE 6 điểm: 859 hiệu dụng/nhóm; 20 nhân viên x 299 yêu cầu = 598
 
 Baseline mở lại: 51/1200 = 4.2500%; trong phạm vi 39/982 = 3.9715%.
 
+E1 · Chỉ số trong đợt chạy thử, chưa có đối chứng
+chi_so  tu_so  mau_so  ty_le_pct
+ chinh    994    1200     82.833
+bo_qua     48     177     27.119
+mo_lai     51    1200      4.250
+
 Phạm vi: đề xuất noi_dia + hang_nang; quoc_te thiếu hiệu quả, doi_tac có điều khoản riêng.
 
-Chưa xác nhận: kiểm tra trên máy TV2, hai bộ nhãn độc lập, duyệt chéo và phê duyệt pilot.
+Duyệt chéo, phê duyệt pilot và nộp LMS cần bằng chứng thực tế; không suy ra từ output tính toán.

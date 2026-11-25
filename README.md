@@ -44,7 +44,7 @@ python3 -m venv .venv
 source .venv/bin/activate            # Windows PowerShell: .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -c "import pandas, numpy, scipy, statsmodels; print('san sang')"
-python lab13.py                      # báo NotImplementedError cho tới khi viết xong các hàm
+python lab13.py                      # bản nhóm đã hoàn thiện A–B, D1 và E1
 ```
 
 Cài đặt theo từng hệ điều hành và cách đọc dữ liệu đúng: [src/README.md](src/README.md).
