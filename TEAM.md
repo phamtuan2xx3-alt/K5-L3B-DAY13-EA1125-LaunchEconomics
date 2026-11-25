@@ -8,14 +8,16 @@
 - URL: https://github.com/phamtuan2xx3-alt/K5-L3B-DAY13-EA1125-LaunchEconomics
 - Nhánh nộp, commit chốt: main
 - TV1 đã xác nhận: PHẠM QUANG TUẤN — MSSV 2A202603824.
+- TV2 đã xác nhận: NGUYỄN THANH TÙNG — MSSV 2A202603807.
 - TV3 đã xác nhận: CHU VĂN NHẬT — MSSV 2A202603848.
+Tên và thông tin TV4 bổ sung sau. Các mục dưới đây là kế hoạch, chưa phải bằng chứng đã hoàn thành.
 
 ## Thành viên và trách nhiệm chính
 
 | Mã | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --- | --- | --- | --- | --- | --- |
 | TV1 | PHẠM QUANG TUẤN | 2A202603824 | Bổ sung sau | Bổ sung sau | Viết code trước giải lao; phụ trách kinh tế và kế hoạch pilot |
-| TV2 | Bổ sung sau | Bổ sung sau | Bổ sung sau | Bổ sung sau | Kiểm số; viết code sau giải lao; kiểm tra bản tích hợp |
+| TV2 | NGUYỄN THANH TÙNG | 2A202603807 | Bổ sung sau | Bổ sung sau | Kiểm số; viết code sau giải lao; kiểm tra bản tích hợp |
 | TV3 | Chu Văn Nhật | 2A202603848 | Bổ sung sau | Bổ sung sau | Gắn nhãn độc lập 1; phụ trách bảng lỗi và đặc tả chỉ số |
 | TV4 | Bổ sung sau | Bổ sung sau | Bổ sung sau | Bổ sung sau | Gắn nhãn độc lập 2; giữ hồ sơ, ghi duyệt chéo và tổng hợp báo cáo |
 
@@ -115,7 +117,7 @@ Mỗi người copy `report/team/MSSV_HoTen.md` thành `report/team/<MSSV>_<HoTe
 | Thành viên | Phần đã làm | File/commit/output làm bằng chứng | Xác nhận nộp LMS |
 | --- | --- | --- | --- |
 | TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B, phép tính hỗ trợ D1, bản đề xuất pilot và rủi ro kinh tế; chờ nhóm kiểm độc lập | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md` | Chưa xác nhận |
-| TV2 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
+| TV2 · NGUYỄN THANH TÙNG · 2A202603807 | Kiểm số độc lập (đối chiếu 0% lệch), hoàn thiện bảng chi phí A–B, chạy nghiệm thu 9/9 test trên máy TV2 | `report/team/bang_chi_phi.md`; `tests/test_lab13.py` (9 tests pass); báo cáo `report/team/2A202603807_NguyenThanhTung.md` | Chưa xác nhận |
 | TV3 · Chu Văn Nhật · 2A202603848 | Gắn nhãn độc lập 20 ca lỗi ở Nhiệm vụ C, đồng thuận 90%, viết quy tắc phân biệt và bảng khắc phục 5 ca; hoàn thiện báo cáo cá nhân | `report/team/bang_loi.md`; báo cáo `2A202603848_ChuVanNhat.md` | Chưa xác nhận |
 | TV4 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
 
