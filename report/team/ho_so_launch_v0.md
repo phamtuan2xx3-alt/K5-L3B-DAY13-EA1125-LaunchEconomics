@@ -2,18 +2,21 @@
 
 Một trang. Cột trạng thái chỉ nhận: **Xong, có bằng chứng · Chưa · Giả lập**. Mục nào dựa trên cột `_simulated` ghi Giả lập. Người phụ trách là một vai trò, không ghi "cả đội". Gate 2a chỉ duyệt kế hoạch pilot: không viết như thể trợ lý đã được duyệt chạy chính thức (xem quy tắc 5 trong `README.md`).
 
-Nhóm: ... · Lớp: ...
+Nhóm: EA1125 · Lớp: L3B-H202
 
 | Mục | Con số chính | Trạng thái | Người phụ trách |
 | --- | --- | --- | --- |
-| 1 · Chi phí mỗi việc thành công | ... | ... | ... |
-| 2 · Ba yếu tố nhạy nhất | ... | ... | ... |
-| 3 · So với nhân viên tự làm | ... | ... | ... |
-| 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | ... | ... | ... |
-| 5 · Bảng lỗi và cách khắc phục | ... | ... | ... |
-| 6 · Pilot plan | ... | ... | ... |
-| 7 · Rủi ro kinh tế | ... | ... | ... |
+| 1 · Chi phí mỗi việc thành công | Toàn mẫu: **4.472 đ** (`simulated`), gấp 16,3× hóa đơn token+tool (274,7 đ/yêu cầu); làm lại chiếm 51,8%, xem lại 40,7% (giờ người = 92,5%). Phạm vi `noi_dia` (2.696 đ, 0,22×) + `hang_nang` (8.221 đ, 0,69×): CPS biến đổi **3.414 đ**, cộng cố định 40 tr/tháng còn **4.599 đ** (0,38×) ở 45.000 ca/tháng và **5.784 đ** (0,48×) ở nửa khối lượng (`simulated`). Loại `quoc_te` vì **22.515 đ** (1,88×, thành công 27,3%) và `doi_tac` vì điều khoản riêng (10.215 đ, 0,85×). | Giả lập | PM trợ lý hoàn phí |
+| 2 · Ba yếu tố nhạy nhất | Xếp hạng tác động lên CPS: (1) **Số ca làm lại** (+51,8% khi ×2 → 6.787 đ), (2) **Tỉ lệ xem lại** (+40,7% khi ×2 → 6.292 đ), (3) **Lương nhân viên** (+23,1% khi +25% → 5.506 đ); giá token ít nhạy nhất (+5,6% khi ×2). Kịch bản cặp token ×2 + xem lại ×2: 6.543 đ (+46,3%). Tất cả đều `simulated`. | Giả lập | PM trợ lý hoàn phí |
+| 3 · So với nhân viên tự làm | Nhân viên tự làm: **12.000 đ/yêu cầu**. Chi phí cả hệ thống (tính cả 12.000 đ cho ca chuyển nhân viên) rẻ nhất ở giới hạn **2 lần chạy**: **6.901.220 đ** (5.751 đ/yêu cầu, `simulated`), thấp hơn giới hạn 1 lần (7.449.781 đ) và 3 lần (7.037.585 đ). **Con số bất lợi:** nếu phải xem lại 100% trong phạm vi `noi_dia` + `hang_nang`, CPS vọt lên **11.743 đ** (0,98×, làm lại 9 phút) đến **12.415 đ** (1,03×, làm lại 15,3 phút từ dữ liệu, `simulated`) — đắt hơn nhân viên tự làm; ngưỡng hòa vốn xem lại là 4,80 phút/ca. | Giả lập | Giám đốc vận hành LogiX-VN |
+| 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | Trong đợt chạy thử (1.200 ca, chưa có đối chứng): Chính (đóng ≤24h, không mở lại 7 ngày) = **82,83%** (994/1.200); Dùng (tỉ lệ bỏ qua gợi ý `sua`+`bo`) = **27,12%** (48/177); An toàn (mở lại 7 ngày) = **4,25%** (51/1.200; trong phạm vi: **3,97%**, 39/982). Đã đặc tả thêm 2 chỉ số (thời gian xem lại thật, ca hoàn trùng/lệch sổ cái) và 7 event có `trace_id` trong `chi_so.md`. | Xong, có bằng chứng | Kỹ sư trưởng agent |
+| 5 · Bảng lỗi và cách khắc phục | Hai bộ nhãn độc lập 20 ca lỗi đạt đồng thuận **18/20 = 90%** (≥80%), có quy tắc phân biệt cho 2 ca bất đồng (ca 6, ca 13) và 5 ca khắc phục đại diện đủ 5 loại Google PAIR có event/ngưỡng đo được và vai trò phụ trách trong `bang_loi.md`. | Xong, có bằng chứng | Trưởng nhóm CSKH |
+| 6 · Pilot plan | `pilot_plan.yaml` hợp lệ (`yaml.safe_load`), không còn dấu `?`. Ngẫu nhiên **20 can thiệp + 20 đối chứng** theo nhân viên, phân tầng 12 depot (`seed=20261125`), phạm vi `noi_dia` + `hang_nang`. **Đánh đổi:** 20 cụm/nhóm có trần hiệu dụng <1.000 nên không đủ MDE 5 điểm (cần 1.251; power chỉ 64,2%), chốt **MDE 6 điểm** (n hiệu dụng 859; 299 ca/người = 5.980 ca thô/nhóm, DE=6,96). Rollout 10% → 25% → 50% (4→10→20 người), 4 luật dừng đủ 4 vế, rollback ≤30 phút, khóa dữ liệu 04/01/2027, quyết định 05/01/2027. | Xong, có bằng chứng | Giám đốc vận hành LogiX-VN |
+| 7 · Rủi ro kinh tế | 4 rủi ro định lượng từ bảng độ nhạy trong `chi_so.md` (`simulated`): làm lại ×2 (+51,8%), xem lại ×2 (+40,7%) hoặc giữ xem lại 100% (11.743–12.415 đ, mất lợi thế giá), lương +25% (+23,1%), và lưu lượng giảm nửa (cố định/việc tăng 1.185 → 2.370 đ). | Giả lập | PM trợ lý hoàn phí |
 
-**Đề xuất:** Go · Go có điều kiện · No-go (giữ một). Go có điều kiện: ghi từng điều kiện, người phụ trách, ngày kiểm tra. No-go: ghi việc phải làm để quay lại cổng.
+**Đề xuất:** **Go có điều kiện** cho kế hoạch pilot trong phạm vi thu hẹp `noi_dia` + `hang_nang` (loại `quoc_te` và `doi_tac`), giới hạn tối đa **2 lần chạy**. Không duyệt mở rộng ngay vì phút xem lại/làm lại hiện là `simulated`, xem lại 100% có thể đắt hơn nhân viên (1,03×), và thiết kế phải đánh đổi sang MDE 6 điểm.
 
-- ...
+- **Điều kiện 1 (Phê duyệt đánh đổi cỡ mẫu):** Chấp thuận MDE 6 điểm (power 64,2% nếu hiệu ứng thật 5 điểm) và lịch thu mẫu 5.980 ca thô/nhóm — Phụ trách: **Giám đốc vận hành LogiX-VN** · Kiểm tra trước **30/11/2026**.
+- **Điều kiện 2 (An toàn sổ cái & rollback):** Kiểm chứng khóa chống hoàn trùng, chỉ báo "đã hoàn" sau khi sổ cái trả 200/OK, bật đủ 7 event có `trace_id`, và diễn tập cờ tắt rollback ≤30 phút — Phụ trách: **Kỹ sư trưởng agent** · Kiểm tra trước **30/11/2026**.
+- **Điều kiện 3 (Đo phút thật & hạ xem lại an toàn):** Đo phút xem lại/làm lại thực tế ngay bước rollout 10% (tuần 1) để thay số `simulated` và kiểm tra ngưỡng hòa vốn 4,80 phút/ca; chỉ hạ mức xem lại theo bậc 100% → 50% → 25% khi tỉ lệ sửa+bỏ < 15% và kiểm toán 100 ca/tuần không sai tiền — Phụ trách: **Trưởng nhóm CSKH** · Kiểm tra trước **07/12/2026**.
+- **Điều kiện 4 (Kiểm soát chi phí chạy lại):** Cấu hình cứng giới hạn tối đa 2 lần chạy và theo dõi CPS biến đổi hằng tuần theo luật dừng 8.000 đ — Phụ trách: **PM trợ lý hoàn phí** · Kiểm tra trước **30/11/2026**.
