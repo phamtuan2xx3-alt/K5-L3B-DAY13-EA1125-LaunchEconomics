@@ -4,7 +4,7 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: Chu Văn Nhật (2A202603848) · Người gắn nhãn 2: Thành viên gắn nhãn 2 (gắn trong 8 phút, không trao đổi)
+Người gắn nhãn 1: Chu Văn Nhật (2A202603848) · Người gắn nhãn 2: Nguyễn Trọng Truyền (2A202603868) (gắn trong 8 phút, không trao đổi)
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | :---: | --- |

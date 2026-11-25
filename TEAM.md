@@ -10,16 +10,17 @@
 - TV1 đã xác nhận: PHẠM QUANG TUẤN — MSSV 2A202603824.
 - TV2 đã xác nhận: NGUYỄN THANH TÙNG — MSSV 2A202603807.
 - TV3 đã xác nhận: CHU VĂN NHẬT — MSSV 2A202603848.
-Tên và thông tin TV4 bổ sung sau. Các mục dưới đây là kế hoạch, chưa phải bằng chứng đã hoàn thành.
+- TV4 đã xác nhận: NGUYỄN TRỌNG TRUYỀN — MSSV 2A202603868.
+Các mục phân công dưới đây là kế hoạch; đóng góp thực tế và bằng chứng ghi ở bảng cuối tài liệu.
 
 ## Thành viên và trách nhiệm chính
 
 | Mã | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --- | --- | --- | --- | --- | --- |
 | TV1 | PHẠM QUANG TUẤN | 2A202603824 | Bổ sung sau | Bổ sung sau | Viết code trước giải lao; phụ trách kinh tế và kế hoạch pilot |
-| TV2 | NGUYỄN THANH TÙNG | 2A202603807 | Bổ sung sau | Bổ sung sau | Kiểm số; viết code sau giải lao; kiểm tra bản tích hợp |
+| TV2 | NGUYỄN THANH TÙNG | 2A202603807 | 26ai.tungnt7@vinuni.edu.vn | Bổ sung sau | Kiểm số; viết code sau giải lao; kiểm tra bản tích hợp |
 | TV3 | Chu Văn Nhật | 2A202603848 | Bổ sung sau | Bổ sung sau | Gắn nhãn độc lập 1; phụ trách bảng lỗi và đặc tả chỉ số |
-| TV4 | Bổ sung sau | Bổ sung sau | Bổ sung sau | Bổ sung sau | Gắn nhãn độc lập 2; giữ hồ sơ, ghi duyệt chéo và tổng hợp báo cáo |
+| TV4 | Nguyễn Trọng Truyền | 2A202603868 | trongtruyen04@gmail.com | truien | Gắn nhãn độc lập 2; giữ hồ sơ, ghi duyệt chéo và tổng hợp báo cáo |
 
 ## Việc cụ thể và điều kiện bàn giao
 
@@ -56,7 +57,7 @@ Tên và thông tin TV4 bổ sung sau. Các mục dưới đây là kế hoạch
 
 **Bàn giao:** giữ nguyên 2 bộ nhãn độc lập; đồng thuận tối thiểu 16/20, nếu thấp hơn phải ghi định nghĩa đã viết lại trước khi đi tiếp; 5 ca khắc phục đủ 5 loại. `chi_so.md` có 5 chỉ số, ít nhất 6 event và 2 rủi ro có số.
 
-### TV4 · Nhãn độc lập 2, hồ sơ launch và tổng hợp nộp
+### TV4 · Nguyễn Trọng Truyền · Nhãn độc lập 2, hồ sơ launch và tổng hợp nộp
 
 1. **Từ CP1:** giữ `TEAM.md` và điền dần `report/team/ho_so_launch_v0.md` từ số TV1/TV2 bàn giao; chuẩn bị khung báo cáo nhóm và checklist nộp.
 2. **CP3, 8 phút đầu:** tự gắn nhãn đủ 20 ca, độc lập với TV3; lưu nhãn gốc. Sau đó so kết quả và cùng xây dựng bảng khắc phục; không sửa nhãn gốc sau khi so.
@@ -100,15 +101,15 @@ Luồng bàn giao: **output A/B → bảng chi phí → phạm vi pilot và rủ
 
 ## Checklist chung trước khi nộp
 
-- [ ] TV2 xác nhận A1 đạt cả 3 phép thử; script chạy hết trong `src/` trên máy khác trong nhóm; số đối chiếu trong sai số 2%.
-- [ ] TV1/TV2 xác nhận mọi số lấy từ phút giả lập, kể cả tổng chi phí và tỉ lệ dẫn xuất, có nhãn `simulated`; số do code nhóm tính hoặc tính tay có cách tính.
-- [ ] TV3/TV4 giữ đủ 2 bộ nhãn độc lập, quy tắc bất đồng và 5 ca khắc phục có cách đo cùng vai trò phụ trách.
-- [ ] TV1/TV2 xác nhận D1/D2 đủ, YAML parse được, không còn dấu hỏi ngoài chú thích và có ít nhất 3 luật dừng đủ 4 vế.
-- [ ] TV3 xác nhận mỗi chỉ số tính được từ danh sách event có `trace_id`; mô tả số trong đợt chạy thử, không suy diễn tác động nhân quả khi chưa có đối chứng.
-- [ ] TV4 xác nhận hồ sơ 1 trang đủ 7 mục, trạng thái đúng mẫu, dòng cuối là đề xuất; điều kiện có vai trò phụ trách và ngày kiểm tra.
-- [ ] TV4 rà thuật ngữ theo quy tắc 5 của `README.md`, đúng tên và vị trí 6 file hồ sơ, có báo cáo nhóm và 4 báo cáo cá nhân.
-- [ ] TV4 xác nhận giữ nguyên 2 CSV, `lab13_starter.py` và mẫu `MSSV_HoTen.md`; không đưa `.venv/`, `.env` hoặc secret vào commit.
-- [ ] TV4 ghi nhánh/commit nộp, push và kiểm tra repo mở được cho người chấm; từng thành viên xác nhận đã nộp link LMS trước hạn.
+- [x] TV2 xác nhận A1 đạt cả 3 phép thử; script chạy hết trong `src/` trên máy khác trong nhóm; số đối chiếu trong sai số 2%.
+- [x] TV1/TV2 xác nhận mọi số lấy từ phút giả lập, kể cả tổng chi phí và tỉ lệ dẫn xuất, có nhãn `simulated`; số do code nhóm tính hoặc tính tay có cách tính.
+- [x] TV3/TV4 giữ đủ 2 bộ nhãn độc lập, quy tắc bất đồng và 5 ca khắc phục có cách đo cùng vai trò phụ trách.
+- [x] TV1/TV2 xác nhận D1/D2 đủ, YAML parse được, không còn dấu hỏi ngoài chú thích và có ít nhất 3 luật dừng đủ 4 vế.
+- [x] TV3/TV4 xác nhận mỗi chỉ số tính được từ danh sách event có `trace_id`; mô tả số trong đợt chạy thử, không suy diễn tác động nhân quả khi chưa có đối chứng.
+- [x] TV4 xác nhận hồ sơ 1 trang đủ 7 mục, trạng thái đúng mẫu, dòng cuối là đề xuất; điều kiện có vai trò phụ trách và ngày kiểm tra.
+- [x] TV4 rà thuật ngữ theo quy tắc 5 của `README.md`, đúng tên và vị trí 6 file hồ sơ, có báo cáo nhóm và 4 báo cáo cá nhân.
+- [x] TV4 xác nhận giữ nguyên 2 CSV, `lab13_starter.py` và mẫu `MSSV_HoTen.md`; không đưa `.venv/`, `.env` hoặc secret vào commit.
+- [ ] TV4 ghi `phieu_cham.md` sau buổi duyệt chéo, ghi nhánh/commit nộp, push và kiểm tra repo mở được cho người chấm; từng thành viên xác nhận đã nộp link LMS trước hạn.
 
 ## Báo cáo cá nhân và đóng góp thực tế
 
@@ -119,7 +120,7 @@ Mỗi người copy `report/team/MSSV_HoTen.md` thành `report/team/<MSSV>_<HoTe
 | TV1 · PHẠM QUANG TUẤN · 2A202603824 | Triển khai với Codex: A–B, phép tính hỗ trợ D1, bản đề xuất pilot và rủi ro kinh tế; chờ nhóm kiểm độc lập | `src/lab13.py`; `report/team/TV1_ket_qua.txt`; `report/team/pilot_plan.yaml`; `report/team/TV1_ban_giao.md`; `tests/test_lab13.py`; báo cáo `2A202603824_PhamQuangTuan.md` | Chưa xác nhận |
 | TV2 · NGUYỄN THANH TÙNG · 2A202603807 | Kiểm số độc lập (đối chiếu 0% lệch), hoàn thiện bảng chi phí A–B, chạy nghiệm thu 9/9 test trên máy TV2 | `report/team/bang_chi_phi.md`; `tests/test_lab13.py` (9 tests pass); báo cáo `report/team/2A202603807_NguyenThanhTung.md` | Chưa xác nhận |
 | TV3 · Chu Văn Nhật · 2A202603848 | Gắn nhãn độc lập 20 ca lỗi ở Nhiệm vụ C, đồng thuận 90%, viết quy tắc phân biệt và bảng khắc phục 5 ca; hoàn thiện báo cáo cá nhân | `report/team/bang_loi.md`; báo cáo `2A202603848_ChuVanNhat.md` | Chưa xác nhận |
-| TV4 | Bổ sung sau khi làm | Bổ sung sau | Chưa xác nhận |
+| TV4 · Nguyễn Trọng Truyền · 2A202603868 | Gắn nhãn độc lập 2 (C), hoàn thiện `chi_so.md` (E1/E2), chốt `ho_so_launch_v0.md` 7 mục, tổng hợp `group_report.md`, cập nhật `TEAM.md` và rà checklist trước duyệt chéo | `report/team/ho_so_launch_v0.md`; `report/team/chi_so.md`; `report/team/group_report.md`; `TEAM.md`; `report/team/bang_loi.md`; báo cáo `2A202603868_NguyenTrongTruyen.md` | Chưa xác nhận |
 
 ## Nguồn yêu cầu
 
